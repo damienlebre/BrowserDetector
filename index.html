@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Identification navigateur</title>
+<style>
+    *{margin: 0;
+      padding: 0;
+    box-sizing: border-box;
+    color: white;
+}
+
+body{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    background: linear-gradient(14deg, black 50%, darkred 50%);
+}
+    .container{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .container h1{
+        color: blueviolet;
+        font-size: 50px;
+    }
+
+    ul{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    ul li{
+        list-style: none;
+        margin-left: 15px;
+    }
+
+    .isSelected{
+        color: turquoise;
+        text-shadow: 3px 3px 10px whitesmoke;
+        font-size: 20px;
+    }
+
+
+</style>
+</head>
+<body>
+    <main class="container">
+        <h1>Navigateur :</h1>
+        <ul>
+            <li class="edge">Edge</li>
+            <li class="firefox">Firefox</li>
+            <li class="chrome">Chrome</li>
+            <li class="safari">safari</li>
+        </ul>
+
+    </main>
+
+    <script>
+        let userAgent = navigator.userAgent; //navigator->objet qui contient infos sur navigateur
+        //console.log(userAgent);//
+        let browser
+
+        if(userAgent.match(/edg/i)){
+            browser = 'edge';
+        }else if(userAgent.match(/firefox|fxios/i)){
+            browser= 'firefox';
+
+        } else if(userAgent.match(/chrome|chromium|vrios/i)){
+            browser = 'chrome';
+
+        }else if(userAgent.match(/safari/i)){
+            browser = 'safari';
+
+        }else{
+            alert('la detection a échouée!!!');
+        }
+
+        console.log(browser);
+
+        const BROWSER = document.querySelector(`.${browser}`);
+        BROWSER.classList.add('isSelected');
+
+    </script>
+</body>
+</html>
